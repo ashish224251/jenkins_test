@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'linux'
+    }
     
     tools {
         maven "MVN3"
@@ -8,7 +10,7 @@ pipeline {
     stages {
         stage('pull scm') {
             steps {
-                git credentialsId: 'github', url: 'git@github.com:ashish224251/jenkins_test.git'
+                git credentialsId: 'github', url: 'git@github.com:{your github id}/jenkins_test.git'
             }
         }
         
